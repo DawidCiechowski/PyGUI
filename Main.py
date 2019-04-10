@@ -9,7 +9,7 @@ root.title("Playaround")
 root.resizable(width=False, height=False)
 
 
-#
+#Instantiate widgets and variables associated with them
 first_number_label = Label(root, text="First number: ")
 first_number_label.grid(column=0, row = 0, sticky=W)
 
@@ -30,8 +30,9 @@ result_label.grid(column=0, row=4, sticky=W, pady = 20)
 result = Label(root, text="")
 result.grid(column=1, row = 4, sticky = W, pady = 20)
 
-
+# Execute the statement based on an action.
 def define_action(action):
+    #Variables
     global result
     global first_number_input
     global second_number_input
@@ -39,6 +40,8 @@ def define_action(action):
     number_2 = IntVar()
     number_1.set(first_number_input.get())
     number_2.set(second_number_input.get())
+
+    #Execite basic mathematical function based on 'action' variable
     if(action == "ADD"):
         final_result = number_1.get() + number_2.get() #ADD
     elif(action == "SUBSTRACT"):
@@ -52,8 +55,10 @@ def define_action(action):
     elif(action == "MODULO"):
         final_result = number_1.get() % number_2.get() #MODULO
 
+    #Configure the label based on result
     result.configure(text=final_result)
 
+# Button listeners
 def add_listener():
     define_action("ADD")
 
@@ -70,7 +75,7 @@ def modulo_listener():
     define_action("MODULO")
 
     
-
+# Instantiate buttons
 add_button = Button(root, command = add_listener, text="+", height=1, width=1)
 add_button.grid(row=2, column=0, sticky = E)
 
