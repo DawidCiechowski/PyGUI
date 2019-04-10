@@ -10,3 +10,5 @@
 
 * Refactor all the code.
 * Write necessary and useful comments.
+* Add other GUI components into the window.
+* Code widgets interactions with one another
