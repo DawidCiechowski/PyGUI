@@ -7,13 +7,13 @@ root = Tk()
 #All main window values
 root.title("Playaround")
 root.resizable(width=False, height=False)
-root.maxsize(500, 250)
-root.minsize(500, 250)
+root.maxsize(350, 150)
+root.minsize(350, 150)
 
 
 #
 first_number_label = Label(root, text="First number: ")
-first_number_label.grid(column=0, row = 0)
+first_number_label.grid(column=0, row = 0, sticky=W)
 
 first_number_type = IntVar()
 first_number_input = Entry(root, textvariable=first_number_type)
@@ -27,10 +27,10 @@ second_number_input = Entry(root, textvariable=second_number_type)
 second_number_input.grid(column=1, row = 1, pady = 10)
 
 result_label = Label(root, text="Result: ")
-result_label.grid(column=0, row=3, sticky=W)
+result_label.grid(column=0, row=3, sticky=W, pady = 20)
 
 result = Label(root, text="")
-result.grid(column=1, row = 3, sticky = W)
+result.grid(column=1, row = 3, sticky = W, pady = 20)
 
 
 def define_action(action):
@@ -42,17 +42,17 @@ def define_action(action):
     number_1.set(first_number_input.get())
     number_2.set(second_number_input.get())
     if(action == "ADD"):
-        final_result = number_1.get() + number_2.get()
+        final_result = number_1.get() + number_2.get() #ADD
     elif(action == "SUBSTRACT"):
-        final_result = number_1.get() - number_2.get()
+        final_result = number_1.get() - number_2.get() #SUBSTRACT
     elif(action == "MULTIPLY"):
-        final_result = number_1.get() * number_2.get()
+        final_result = number_1.get() * number_2.get() #MULTIPLY
     elif(action == "DIVIDE" and not number_2.get() == 0):
-        final_result = number_1.get() / number_2.get()
-    elif(action == "DIVIDE" and number_2.get() == 0):
-        mbox.showinfo("ERROR!", "Cannot divide by 0!")
+        final_result = number_1.get() / number_2.get() #DIVIDE
+    elif((action == "DIVIDE" or action == "MODULO") and number_2.get() == 0):
+        mbox.showinfo("ERROR!", "Cannot divide by 0!") #DIVIDING BY 0
     elif(action == "MODULO"):
-        final_result = number_1.get() % number_2.get()
+        final_result = number_1.get() % number_2.get() #MODULO
 
     result.configure(text=final_result)
 
