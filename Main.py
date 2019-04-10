@@ -50,7 +50,7 @@ def define_action(action):
     elif(action == "DIVIDE" and (not number_1.get == 0 and not number_2.get() == 0)):
         final_result = number_1.get() / number_2.get()
     elif(action == "DIVIDE" and (number_1.get == 0 or number_2.get() == 0)):
-        result.configure(text="Cannot divide by 0")
+        final_result = "Cannot divide by 0"
 
     result.configure(text=final_result)
 
