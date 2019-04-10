@@ -7,8 +7,6 @@ root = Tk()
 #All main window values
 root.title("Playaround")
 root.resizable(width=False, height=False)
-root.maxsize(350, 150)
-root.minsize(350, 150)
 
 
 #
@@ -17,20 +15,20 @@ first_number_label.grid(column=0, row = 0, sticky=W)
 
 first_number_type = IntVar()
 first_number_input = Entry(root, textvariable=first_number_type)
-first_number_input.grid(column=1, row =0)
+first_number_input.grid(column=1, row =0, sticky=W)
 
 second_number_label = Label(root, text="Second number: ")
-second_number_label.grid(column=0, row=1, pady=10)
+second_number_label.grid(column=0, row=1, sticky=W)
 
 second_number_type = IntVar()
 second_number_input = Entry(root, textvariable=second_number_type)
 second_number_input.grid(column=1, row = 1, pady = 10)
 
 result_label = Label(root, text="Result: ")
-result_label.grid(column=0, row=3, sticky=W, pady = 20)
+result_label.grid(column=0, row=4, sticky=W, pady = 20)
 
 result = Label(root, text="")
-result.grid(column=1, row = 3, sticky = W, pady = 20)
+result.grid(column=1, row = 4, sticky = W, pady = 20)
 
 
 def define_action(action):
@@ -73,20 +71,23 @@ def modulo_listener():
 
     
 
-add_button = Button(root, command = add_listener, text="+")
-add_button.grid(column=0, row=2, sticky = W)
+add_button = Button(root, command = add_listener, text="+", height=1, width=1)
+add_button.grid(row=2, column=0, sticky = E)
 
-substract_button = Button(root, command = substract_listener, text="-")
-substract_button.grid(column=0, row=2)
+substract_button = Button(root, command = substract_listener, text="-", height=1, width=1)
+substract_button.grid(row=2, column=1, sticky = W)
 
-multiply_button = Button(root, command = multiply_listener, text="*")
-multiply_button.grid(column=0, row=2, sticky = E)
+multiply_button = Button(root, command = multiply_listener, text="*", height=1, width=1)
+multiply_button.grid(row=2, column=1, sticky=W, padx=16)
 
-divide_button = Button(root, command = divide_listener, text="/")
-divide_button.grid(column=1, row=2, pady = 0)
+divide_button = Button(root, command = divide_listener, text="/", height=1, width=1)
+divide_button.grid(row=3, column=0,sticky = E)
 
-modulo_button = Button(root, command = modulo_listener, text="%")
-modulo_button.grid(column=1, row=2, sticky = E)
+modulo_button = Button(root, command = modulo_listener, text="%", height=1, width=1)
+modulo_button.grid(row=3, column=1, sticky=W)
+
+root.grid_columnconfigure(100, weight=1)
+root.grid_rowconfigure(2, weight=1)
 
 
 #Run mainloop
