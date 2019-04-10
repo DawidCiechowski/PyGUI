@@ -32,8 +32,6 @@ result_label.grid(column=1, row=4, pady=10, padx = 0, ipadx=0)
 result = Label(root, text="")
 result.grid(column=2, row = 4, sticky = W)
 
-#def input_not_empty(input):
- #   return len(input.get()) > 0
 
 def define_action(action):
     global result
@@ -51,6 +49,8 @@ def define_action(action):
         final_result = number_1.get() * number_2.get()
     elif(action == "DIVIDE" and (not number_1.get == 0 and not number_2.get() == 0)):
         final_result = number_1.get() / number_2.get()
+    elif(action == "DIVIDE" and (number_1.get == 0 or number_2.get() == 0)):
+        result.configure(text="Cannot divide by 0")
 
     result.configure(text=final_result)
 
