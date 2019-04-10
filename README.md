@@ -1,1 +1,1 @@
-### Python GUI playaround. Understanding the basics of tkinter library and GUI manipulation
+# Python GUI playaround. Understanding the basics of tkinter library and GUI manipulation
